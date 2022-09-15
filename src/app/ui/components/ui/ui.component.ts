@@ -12,4 +12,10 @@ export class UiComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+  public onSubmit() {
+
+    console.log("Don't look me like that. I'm a shy button >//<")
+
+  }
+
+}// rien écrire après
