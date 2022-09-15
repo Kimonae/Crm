@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UiComponent implements OnInit {
 
+public open = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -14,8 +16,16 @@ export class UiComponent implements OnInit {
 
   public onSubmit() {
 
-    console.log("Don't look me like that. I'm a shy button >//<")
+    console.log("Don't touch me like that. I'm a shy button >//<")
+
+
+    // ! inverse la valeur.
+    this.open = !this.open;
+
 
   }
+
+
+
 
 }// rien écrire après

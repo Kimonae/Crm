@@ -1,15 +1,25 @@
 <header class="fixed-top">
  Fake header <!-- Inutile, répétition. app.compo.html-->
- <button (click)='onSubmit()'> Open / Close</button>
+
+ <!--<ng-content select ='.button'> </ng-content>-->
+ <!--<button (click)='onSubmit()'> Open / Close</button>-->
+ <span (click)="onSubmit()">
+
+ <ng-content select ='.tr_btn'> </ng-content>
+  </span>
+
   <ng-content select ='.tr_header'> </ng-content> <!-- Permet d'afficher le header en l'intégrant en app-ui dans app.compo.html-->
+
 </header>
 
-<main>
+<main [ngClass]="{'close-aside' : !open}">
+
   <div class="shadow position-fixed">
   </div>
   <aside>
     <div class="scroller">
       Nav
+      <ng-content select ='tr_button'> </ng-content>
 
       <ng-content select ='.tr_nav'> </ng-content>
     </div>
@@ -20,6 +30,7 @@
     </div>
     <footer>
       Footer
+
       <ng-content select ='.tr_footer'> </ng-content>
     </footer>
   </div>
