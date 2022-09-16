@@ -5,7 +5,13 @@
  <!--<button (click)='onSubmit()'> Open / Close</button>-->
  <span (click)="onSubmit()">
 
- <ng-content select ='.tr_btn'> </ng-content>
+ <ng-content
+  *ngIf='open'
+  select ='.tr_btn_close'> </ng-content>
+
+  <ng-content
+  *ngIf='!open'
+  select ='.tr_btn_open'> </ng-content>
   </span>
 
   <ng-content select ='.tr_header'> </ng-content> <!-- Permet d'afficher le header en l'intégrant en app-ui dans app.compo.html-->
