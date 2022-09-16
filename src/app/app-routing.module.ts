@@ -12,7 +12,27 @@ const routes: Routes = [
   { path: 'sign-in', component: PageSignInComponent },//va chercher le composant
   { path: 'sign-up', component: PageSignUpComponent},
   { path: 'reset-password', component: PageResetPasswordComponent},
-  { path: 'forgot-password', component: PageForgotPasswordComponent}
+  { path: 'forgot-password', component: PageForgotPasswordComponent},
+
+
+  //lazy_loading
+  {
+    path: 'orders',
+    loadChildren: () =>
+      import('./orders/orders.module').then((m) => m.OrdersModule),
+  },
+
+  {
+    path: 'clients',
+    loadChildren: () =>
+      import('./clients/clients.module').then((m) => m.ClientsModule),
+  },
+
+  {
+    path: 'page-not-found',
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then((m) => m.PageNotFoundModule),
+  }
 
 ];
 
