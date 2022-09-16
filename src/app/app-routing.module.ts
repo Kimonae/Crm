@@ -29,7 +29,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'page-not-found',
+    path: '**',
     loadChildren: () =>
       import('./page-not-found/page-not-found.module').then((m) => m.PageNotFoundModule),
   }
