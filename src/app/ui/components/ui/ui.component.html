@@ -1,5 +1,5 @@
 <header class="fixed-top">
- Fake header <!-- Inutile, répétition. app.compo.html-->
+ <!--Fake header--> <!-- Inutile, répétition. app.compo.html-->
 
  <!--<ng-content select ='.button'> </ng-content>-->
  <!--<button (click)='onSubmit()'> Open / Close</button>-->
@@ -24,7 +24,7 @@
   </div>
   <aside>
     <div class="scroller">
-      Nav
+      <!--Nav-->
       <ng-content select ='tr_button'> </ng-content>
 
       <ng-content select ='.tr_nav'> </ng-content>
@@ -32,10 +32,14 @@
   </aside>
   <div class="page">
     <div class="contents">
-      Content
+      <ng-content select=".tr_router"> </ng-content>
+      Content (pas la joie)
+
     </div>
+
+
     <footer>
-      Footer
+      <!--Footer-->
 
       <ng-content select ='.tr_footer'> </ng-content>
     </footer>
