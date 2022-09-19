@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PageSignInComponent } from './login/page/page-sign-in/page-sign-in.component';
 import { PageSignUpComponent } from './login/page/page-sign-up/page-sign-up.component';
 import { PageResetPasswordComponent } from './login/page/page-reset-password/page-reset-password.component';
@@ -9,10 +9,7 @@ import { PageForgotPasswordComponent } from './login/page/page-forgot-password/p
 //routing
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },//redirection sur sign-in, full = complète restriction
-  { path: 'sign-in', component: PageSignInComponent },//va chercher le composant
-  { path: 'sign-up', component: PageSignUpComponent},
-  { path: 'reset-password', component: PageResetPasswordComponent},
-  { path: 'forgot-password', component: PageForgotPasswordComponent},
+
 
 
   //lazy_loading
@@ -22,6 +19,12 @@ const routes: Routes = [
       import('./orders/orders.module').then((m) => m.OrdersModule),
   },
 
+
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
   {
     path: 'clients',
     loadChildren: () =>
@@ -37,7 +40,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+
+    { preloadingStrategy : PreloadAllModules}
+    )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
