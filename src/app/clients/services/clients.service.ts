@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order } from 'src/app/core/models/order';
+import { Client } from 'src/app/core/models/client';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+export class ClientsService {
 
-  private collection$!: Observable<Order[]>;
+  private collection$!: Observable<Client[]>;
 
   constructor(private http: HttpClient) {
 
-    this.collection = this.http.get<Order[]>('http://localhost:4200/orders')
+    this.collection = this.http.get<Client[]>('http://localhost:4200/clients')
    }
 
   get collection() {
