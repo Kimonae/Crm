@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from 'src/app/core/models/client';
 import { ClientsService } from '../../services/clients.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { ClientsService } from '../../services/clients.service';
 })
 export class PageListClientsComponent implements OnInit {
 
+
+  collection !: Client[];
   constructor(private clientsService: ClientsService) {
 
     this.clientsService.collection.subscribe((data) => {
