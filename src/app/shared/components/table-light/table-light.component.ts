@@ -9,6 +9,7 @@ export class TableLightComponent implements OnInit {
 
   @Input() collection !: any;
   @Input() headers !: string[];
+  @Input() clients !: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +18,6 @@ export class TableLightComponent implements OnInit {
   ngOnChanges() {
 
     console.log(this.collection, 'test');
+    console.log(this.clients);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Client } from 'src/app/core/models/client';
 import { ClientsService } from '../../services/clients.service';
 
@@ -10,15 +10,33 @@ import { ClientsService } from '../../services/clients.service';
 export class PageListClientsComponent implements OnInit {
 
 
-  collection !: Client[];
+  @Input() collection !: any;
+
+  collectionn !: Client[];
+
+
+  public headers: string [] = [
+    "state",
+    "tva",
+    "id",
+    "name",
+    "totalCaHt",
+    "comment",
+  ];
+
+
   constructor(private clientsService: ClientsService) {
 
     this.clientsService.collection.subscribe((data) => {
       console.log(data);
+      this.collectionn = data;
     });
   }
 
   ngOnInit(): void {
+
+
+
   }
 
 }
