@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-light',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableLightComponent implements OnInit {
 
+  @Input() collection !: any;
+  @Input() headers !: string[];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  ngOnChanges() {
+
+    console.log(this.collection, 'test');
+  }
 }

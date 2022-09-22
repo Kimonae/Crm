@@ -18,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    SharedModule
+    SharedModule,
+    TemplatesModule
   ]
 })
 export class OrdersModule { }
