@@ -7,7 +7,7 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-list-orders.component.scss']
 })
 export class PageListOrdersComponent implements OnInit {
-
+  public titleParent: string = 'Liste des commandes';
   constructor(private ordersService: OrdersService) {
 
     this.ordersService.collection.subscribe((data) => {
