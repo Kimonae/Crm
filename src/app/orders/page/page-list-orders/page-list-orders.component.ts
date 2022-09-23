@@ -36,5 +36,14 @@ export class PageListOrdersComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ public total(val: number, coef: number, tva?:number)//optionnel
+ {
+  console.log('fonction total');
+  /*if(tva) {
 
+  return val * coef *(1 + tva/100)
+
+  }
+  return val * coef;*/
+ }
 }
