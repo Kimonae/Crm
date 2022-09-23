@@ -9,4 +9,6 @@ export interface OrderI {
   typePresta : string;
   client : string;
   id: number;
+  totalHT(): number;
+  totalTTC(): number;
 }

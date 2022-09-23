@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
 
@@ -10,9 +11,11 @@ import { OrdersService } from '../../services/orders.service';
 export class PageListOrdersComponent implements OnInit {
   public titleParent: string = 'Liste des commandes';
 
-  @Input() collection !: any;
+   //@Input() collection$ !: any;
 
-  collectionParent !: Order[];
+
+  //collectionParent !: Order[];
+  public collection$ !: Observable<Order[]>;
 
 
   public headers: string [] = [
@@ -28,10 +31,12 @@ export class PageListOrdersComponent implements OnInit {
 
   constructor(private ordersService: OrdersService) {
 
-    this.ordersService.collection.subscribe((data) => {
+    /*this.ordersService.collection.subscribe((data) => {
       console.log(data);
-      this.collectionParent = data;
-    });
+      this.collectionParent = data;}*/
+
+      this.collection$ = this.ordersService.collection;
+
   }
 
   ngOnInit(): void {
@@ -45,5 +50,10 @@ export class PageListOrdersComponent implements OnInit {
 
   }
   return val * coef;*/
- }
+
+
+
+}
+
+
 }

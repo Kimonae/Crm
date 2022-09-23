@@ -10,6 +10,17 @@ export class Order {
   client !: string;
   comment!: string;
   id !: number;
+  totalHT(): number { //ajout méthodes directement les méthodes pour le pipe
+
+return this.tjmtHt * this.nbJours;
+  }
+
+totalTTC(): number {
+
+  return this.tjmtHt * this.nbJours * (1 + this.tva/100);
+
+    }
+
 
   constructor(obj ?: Partial<Order>) {
 

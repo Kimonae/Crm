@@ -1,9 +1,10 @@
 
 <!--<app-template-full-width [title]="titleParent"> </app-template-full-width>-->
 <!-- <app-template-container> </app-template-container> -->
-<app-template-container [title]="titleParent">
+<app-template-container [title]="titleParent" *ngIf="collection$ | async as collection">
 <!--<app-table-light [collection]='collectionParent' [headers]="headers" *ngIf="collection">-->
   <app-table-light [headers]="headers">
+
 
   <tr *ngFor="let item of collection">
     <th scope="row">1</th>
@@ -11,16 +12,15 @@
     <td>{{item.typePresta | uppercase }}</td>
     <td>{{item.client}}</td>
     <td>{{item.nbJours}}</td>
-    <td>{{item.tjmHt}}</td>
+    <td>{{item.tjmtHt}}</td>
     <!--<td>{{total(item.tjmHt, item.nbJours)}}</td>-->
-    <td>{{item.tjmHt | total: item.nbJours}}</td> <!-- Pipe ===> " | "  -->
-    <td>{{item.tjmHt | total: item.nbJours : item.tva}}</td>
+    <!--<td>{{item.tjmHt | total: item.nbJour}}</td>  Pipe ===> " | "  -->
+    <td>{{item | total }}</td>
+    <td>{{item.tjmtHt | total: true}}</td>
     <td>Total Ht</td>
     <td>Total TTC</td>
     <td>{{item.state}}</td>
 
 </tr>
-
-
 </app-table-light>
 </app-template-container>
