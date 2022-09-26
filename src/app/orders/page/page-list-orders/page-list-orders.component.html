@@ -20,7 +20,26 @@
     <td>Total Ht</td>
     <td>Total TTC</td>
     <td>{{item.state}}</td>
+    <!--<td [ngClass]="{
+      'state-option': item.state === 'OPTION',
+      'state-cancelled': item.state === 'CANCELLED',
+      'state-confirmed': item.state === 'CONFIRMED'
+    }">-->
+    <td appState [etat]='item.state'>
+      <!-- ici un menu déroulant -->
+      <select (change) ='changeState(item, $event)'>
+        <option
+        *ngFor='let state of states'
+        [value]="state"
 
+        [selected]='state === item.state'>
+        {{state}}</option>
+
+
+
+      </select>
+  </td>
 </tr>
 </app-table-light>
+<app-btn label="Ajouter" route="add" stylebtn="btn btn-primary"> </app-btn>
 </app-template-container>

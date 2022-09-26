@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { StateClients } from 'src/app/core/enum/state-clients';
 import { Client } from 'src/app/core/models/client';
 import { ClientsService } from '../../services/clients.service';
 
@@ -9,10 +11,15 @@ import { ClientsService } from '../../services/clients.service';
 })
 export class PageListClientsComponent implements OnInit {
 
+  public states = Object.values(StateClients);
+  public titleParent: string = 'Liste des clients';
 
-  @Input() collection !: any;
+  public collection$ !: Observable<Client[]>;
 
-  collectionn !: Client[];
+
+  /*@Input() collection !: any;
+
+  collectionn !: Client[];*/
 
 
   public headers: string [] = [
@@ -27,10 +34,9 @@ export class PageListClientsComponent implements OnInit {
 
   constructor(private clientsService: ClientsService) {
 
-    this.clientsService.collection.subscribe((data) => {
-      console.log(data);
-      this.collectionn = data;
-    });
+
+    this.collection$ = this.clientsService.collection;
+
   }
 
   ngOnInit(): void {

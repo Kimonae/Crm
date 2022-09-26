@@ -1,20 +1,22 @@
 {
   "orders": [
     {
-      "tjmHt": 1200,
+      "tjmtHt": 200,
       "nbJours": 20,
       "tva": 20,
-      "state": "OPTION",
+      "state": "CONFIRMED",
+      "tjmHt": 1200,
       "typePresta": "formation",
       "client": "Capgemini2",
       "comment": "Merci Cap pour les 24k",
       "id": 1
     },
     {
-      "tjmHt": 1200,
+      "tjmtHt": 200,
       "nbJours": 10,
       "tva": 20,
-      "state": "CONFIRMED",
+      "state": "CANCELLED",
+      "tjmHt": 1200,
       "typePresta": "formation",
       "client": "Modis",
       "comment": "fgddhf",

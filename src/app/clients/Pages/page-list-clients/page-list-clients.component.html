@@ -1,6 +1,52 @@
-<p *ngFor='let i of collection'>{{i.name}} </p>
+<app-template-container [title]="titleParent" *ngIf="collection$ | async as collection">
 
 
-<app-table-light [collection]='collectionn' [headers]="headers"> </app-table-light>
+
+<app-table-light [collection]='collection$' [headers]="headers">
 
 
+  <tr *ngFor="let item of collection">
+    <th scope="row">1</th>
+
+    <td>{{item.tva}}</td>
+    <td>{{item.totalCaHT}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.comment}}</td>
+    <td>{{item.state}}</td>
+    <td>
+
+      <select>
+        <option
+        *ngFor='let state of states'
+        [value]="state"
+
+        [selected]='state === item.state'>
+        {{state}}</option>
+
+
+
+      </select>
+  </td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</app-table-light>
+
+
+</app-template-container>
