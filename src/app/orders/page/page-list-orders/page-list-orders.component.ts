@@ -51,14 +51,14 @@ export class PageListOrdersComponent implements OnInit {
 public changeState(item : Order, event: Event)  {  //récup valeur state
 
   console.log("changed");
-  console.log(event);
+  //console.log(event);
   const target = event.target as HTMLSelectElement;
-  console.log(target);
+  //console.log(target);
 
   const state = target.value as StateOrder;
-  console.log(state);
+  //console.log(state);
   this.ordersService.changeState(item, state).subscribe(data=>{
-    console.log(data, 'renvoyé par API');
+    //console.log(data, 'renvoyé par API');
 
 
     Object.assign(item, data);

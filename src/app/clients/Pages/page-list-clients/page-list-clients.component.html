@@ -15,38 +15,32 @@
     <td>{{item.state}}</td>
     <td>
 
-      <select>
+      <!--<select>
         <option
         *ngFor='let state of states'
         [value]="state"
 
         [selected]='state === item.state'>
-        {{state}}</option>
+        {{state}}</option>-->
+
+
+
+        <td appState [etat]='item.state'>
+          <select (change) ='changeState(item, $event)'>
+            <option
+            *ngFor='let state of states'
+            [value]="state"
+
+            [selected]='state === item.state'>
+            {{state}}</option>
 
 
 
       </select>
-  </td>
-</tr>
+      </td>
+  </tr>
+  </app-table-light>
+  <app-btn label="Ajouter" route="add" stylebtn="btn btn-primary"> </app-btn>
+ </app-template-container>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</app-table-light>
-
-
-</app-template-container>

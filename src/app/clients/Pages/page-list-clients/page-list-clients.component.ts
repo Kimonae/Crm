@@ -45,4 +45,23 @@ export class PageListClientsComponent implements OnInit {
 
   }
 
+
+
+public changeState(item : Client, event: Event)  {  //récup valeur state
+
+  const target = event.target as HTMLSelectElement;
+
+
+  const state = target.value as StateClients;
+
+  this.clientsService.changeState(item, state).subscribe(data=>{
+
+
+
+    Object.assign(item, data);
+  })
+
+
+}
+
 }
