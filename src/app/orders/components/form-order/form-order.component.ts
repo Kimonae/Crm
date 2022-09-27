@@ -1,5 +1,7 @@
+import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { read } from 'fs';
 import { StateOrder } from 'src/app/core/enum/state-order';
 import { Order } from 'src/app/core/models/order';
 
@@ -31,7 +33,7 @@ export class FormOrderComponent implements OnInit {
       tva: [this.init.tva],
       state: [this.init.state],
       typePresta: [this.init.typePresta],
-      client: [this.init.client],
+      client: [this.init.client, Validators.required], //requis sinon invalide
       comment: [this.init.comment],
 
     })
@@ -45,7 +47,15 @@ export class FormOrderComponent implements OnInit {
   public onSubmit() {
 
     //console.log(this.form.value, "valide");
-    this.submitted.emit(this.form.value);
+
+
+    if(this.form.status === "VALID") {
+      this.submitted.emit(this.form.value);
+
+      }else {
+
+        alert("/!\WARNING, you can't add this order.")
+      }
   }
 
 }
