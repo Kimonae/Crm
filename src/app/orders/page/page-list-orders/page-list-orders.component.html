@@ -9,6 +9,7 @@
   <tr *ngFor="let item of collection">
     <th scope="row">1</th>
     <!--  table data cells (td)-->
+    <td> <app-icon-edit (click)="onEdit(item)"> </app-icon-edit> </td>
     <td>{{item.typePresta | uppercase }}</td>
     <td>{{item.client}}</td>
     <td>{{item.nbJours}}</td>
@@ -41,5 +42,5 @@
   </td>
 </tr>
 </app-table-light>
-<app-btn label="Ajouter" route="add" stylebtn="btn btn-primary"> </app-btn>
+<app-btn label="Ajouter" route="add" styleBtn="btn btn-primary"> </app-btn>
 </app-template-container>

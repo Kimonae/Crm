@@ -36,11 +36,11 @@ export class OrdersService {
 
   }
   changeState(item: Order, state: StateOrder){
-    console.log(item, state, 'depuis la méthode changeState');
+   // console.log(item, state, 'depuis la méthode changeState');
     const obj = new Order(item);
-    console.log(obj);
+    //console.log(obj);
     obj.state = state;
-    console.log(obj, "obj 2");
+    // console.log(obj, "obj 2");
 
     this.update(item);
 
@@ -49,7 +49,7 @@ export class OrdersService {
 
   update(obj: Order) {
 
-    console.log(obj, 'depuis update');
+   // console.log(obj, 'depuis update');
 
     return this.http.put(`${this.urlApi}/orders/${obj.id}`, obj)
   }
@@ -57,5 +57,10 @@ export class OrdersService {
   add(item : Order): Observable<Order> {
 
     return this.http.post<Order>(`${this.urlApi}/orders`, item);
+  }
+
+  getItemById(id: number): Observable<Order>{
+    // this.http.get('url/id')
+   return this.http.get<Order>(`${this.urlApi}/orders/${id}`);
   }
 }

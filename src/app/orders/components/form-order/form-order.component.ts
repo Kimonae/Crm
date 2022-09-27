@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StateOrder } from 'src/app/core/enum/state-order';
@@ -14,6 +13,7 @@ export class FormOrderComponent implements OnInit {
   public states = Object.values(StateOrder);
 
   public form!: FormGroup; //donner nom au formulaire, type formgroup
+  public error!: string;
 
   @Output() submitted = new EventEmitter<Order>()
   @Input() init!: Order;
@@ -53,7 +53,8 @@ export class FormOrderComponent implements OnInit {
 
       }else {
 
-        alert(" ! WARNING, you can't add this order.")
+    alert( "! WARNING, you can't add this order.")
+    this.error = 'Champs obligatoires'
       }
   }
 

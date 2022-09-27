@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/core/enum/state-order';
 import { Order } from 'src/app/core/models/order';
@@ -23,6 +24,7 @@ export class PageListOrdersComponent implements OnInit {
 
 
   public headers: string [] = [
+    'Action',
     'Type',
     'Client',
     'NbJours',
@@ -31,9 +33,8 @@ export class PageListOrdersComponent implements OnInit {
     'Total TTC',
     'State',
   ];
-
-
-  constructor(private ordersService: OrdersService) {
+  constructor (private ordersService: OrdersService,
+    private router: Router) {
 
     /*this.ordersService.collection.subscribe((data) => {
       console.log(data);
@@ -43,10 +44,15 @@ export class PageListOrdersComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
   }
 
 
+  public onEdit(item: Order) {
+  //console.log(item);
+    this.router.navigate(['orders', 'edit', item.id])
+  }
 
 public changeState(item : Order, event: Event)  {  //récup valeur state
 
@@ -81,7 +87,8 @@ public changeState(item : Order, event: Event)  {  //récup valeur state
 
 
 
-}
+
 
 
 //}
+}

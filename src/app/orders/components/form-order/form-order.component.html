@@ -1,4 +1,6 @@
 <p> statut: {{form.status }} </p>
+
+<p> <strong> {{ error }} </strong> </p>
 <form [formGroup]='form' (ngSubmit)="onSubmit()">
 
   <div class="form-group">
@@ -42,5 +44,7 @@
     <textarea formControlName='comment' class="form-control" id="comment"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
