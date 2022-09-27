@@ -7,19 +7,23 @@ import { PageAddOrderComponent } from './page/page-add-order/page-add-order.comp
 import { PageEditOrderComponent } from './page/page-edit-order/page-edit-order.component';
 import { TemplatesModule } from '../templates/templates.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormOrderComponent } from './components/form-order/form-order.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     PageListOrdersComponent,
     PageAddOrderComponent,
-    PageEditOrderComponent
+    PageEditOrderComponent,
+    FormOrderComponent
   ],
   imports: [
     CommonModule,
     OrdersRoutingModule,
     SharedModule,
-    TemplatesModule
+    TemplatesModule,
+    ReactiveFormsModule
   ]
 })
 export class OrdersModule { }
