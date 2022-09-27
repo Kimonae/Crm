@@ -1,7 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { read } from 'fs';
 import { StateOrder } from 'src/app/core/enum/state-order';
 import { Order } from 'src/app/core/models/order';
 
@@ -54,7 +53,7 @@ export class FormOrderComponent implements OnInit {
 
       }else {
 
-        alert("/!\WARNING, you can't add this order.")
+        alert(" ! WARNING, you can't add this order.")
       }
   }
 
